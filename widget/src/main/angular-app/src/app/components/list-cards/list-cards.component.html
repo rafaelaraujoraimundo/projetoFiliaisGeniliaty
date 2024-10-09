@@ -1,0 +1,53 @@
+<po-page-default>
+  
+  <div class="po-row">
+    <div class="po-mt-2 po-md-12 po-sm-12 po-text-center green-background">
+      <font class="po-font-title"
+        >Painel de Filiais em Projetos - Geniality</font
+      >
+    </div>
+    <div
+      class="po-mt-2 po-mb-2 po-offset-lg-11 po-offset-xl-11 po-xl-4 po-lg-4 po-md-6 po-sm-12"
+    >
+      <po-tag p-value="Versão 1.4"> </po-tag>
+    </div>
+  </div>
+
+  <div class="po-row po-mb-4">
+    <div class="po-md-12">
+      <po-button p-label="Adicionar Filial" p-type="primary" (p-click)="addItem()">
+      </po-button>
+    </div>
+  </div>
+ 
+
+  <po-container>
+  <po-table
+  p-hide-batch-actions=False
+  p-actions-right=True
+  p-striped=True
+  p-container="light"
+    [p-columns]="columns"
+    [p-items]="items"
+
+  >
+  <ng-template p-table-column-template [p-property]="'acoes'" let-value>
+    <div class="po-table-actions">
+       <po-button 
+        p-icon="po-icon-edit" 
+        p-type="link" 
+        p-label="Inativar"
+        [p-disabled]="value.inativarButton"
+        (p-click)="confirmInativar(value)"> Inativar
+      </po-button>
+      <po-button 
+        p-icon="po-icon-delete" 
+        p-type="link" 
+         p-label="Excluir"
+        (p-click)="confirmDelete(value)"> Excluir
+      </po-button>
+    </div>
+  </ng-template>
+  </po-table>
+</po-container>
+</po-page-default>

@@ -1,0 +1,95 @@
+<po-page-default p-title="Adicionar Nova Filial">
+  <po-container>
+  <form [formGroup]="form!" (ngSubmit)="saveForm()">
+    <div class="po-row">
+
+      <!-- Campo Ativo/Inativo -->
+      <div class="po-md-6">
+        <po-select
+          name="ativoInativo"
+          p-label="Ativo/Inativo"
+          formControlName="ativoInativo"
+          [p-options]="[
+            { value: 'on', label: 'Ativo' },
+            { value: 'off', label: 'Inativo' }
+          ]"
+        >
+        </po-select>
+      </div>
+
+      <!-- Campo Filial (Select) -->
+      <div class="po-md-6">
+        <po-select
+          name="codigoFilial"
+          p-label="Filial"
+          formControlName="codigoFilial"
+          [p-options]="filialOptions"
+          p-required
+        >
+        </po-select>
+      </div>
+
+    </div>
+
+    <div class="po-row">
+      <!-- Campo Data de Criação (ReadOnly) -->
+      <div class="po-md-6">
+        <po-datepicker
+          name="dataCriacao"
+          p-label="Data de Criação"
+          formControlName="dataCriacao"
+          p-disabled="true"
+        >
+        </po-datepicker>
+      </div>
+
+      <!-- Campo Data de Alteração (ReadOnly) -->
+      <div class="po-md-6">
+        <po-datepicker
+          name="dataAlteracao"
+          p-label="Data de Alteração"
+          formControlName="dataAlteracao"
+          p-disabled="true"
+        >
+        </po-datepicker>
+      </div>
+    </div>
+
+    <div class="po-row">
+      <!-- Campo Usuário de Criação (ReadOnly) -->
+      <div class="po-md-6">
+        <po-input
+          name="usuarioCriacao"
+          p-label="Usuário de Criação"
+          formControlName="usuarioCriacao"
+          p-disabled="true"
+        >
+        </po-input>
+      </div>
+
+      <!-- Campo Usuário de Alteração (ReadOnly) -->
+      <div class="po-md-6">
+        <po-input
+          name="usuarioAlteracao"
+          p-label="Usuário de Alteração"
+          formControlName="usuarioAlteracao"
+          p-disabled="true"
+        >
+        </po-input>
+      </div>
+    </div>
+
+
+    <!-- Botões de Ação -->
+    <div class="po-row">
+      <div class="po-md-1 po-sm-12 po-mt-4">
+        <po-button p-label="Salvar" p-type="submit" (p-click)="saveForm()" [p-disabled]="form!.invalid"></po-button>
+      </div>
+      <div class="po-xl-3 po-lg-3 po-mt-4 po-md-6 po-sm-12">
+        <po-button p-label="Cancelar" p-type="default" (p-click)="cancel()"></po-button>
+      </div>
+    </div>
+  </form>
+</po-container>
+
+</po-page-default>
